@@ -1,0 +1,26 @@
+body{
+    background-color: #87cefa;
+}
+h1{
+    font-weight: bold;
+}
+
+#color{
+    color: orange;
+}
+
+#size{
+    font-size:xx-large;
+}
+
+#weight{
+    font-size: x-small;
+    font-weight: bold;
+}
+
+#family{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#align{
+    text-align: right;
+}
