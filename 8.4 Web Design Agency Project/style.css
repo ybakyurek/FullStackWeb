@@ -1,0 +1,105 @@
+/* Genel sayfa stilini belirleyen ana CSS kodları */
+
+/* Tüm sayfa elementlerini "Poppins" yazı tipi ile stilendiriyoruz. */
+body {
+  font-family: "Poppins", sans-serif;
+  /* Sayfanın dört kenarındaki boşlukları ayarlıyoruz: üst, sağ, alt, sol sırasıyla */
+  margin: 50px 50px 0 50px;
+  /* Sayfa arkaplan rengini belirliyoruz */
+  background-color: #faf9f6;
+  /* Flex konteyner olarak kullanarak içeriği dikey sıralama yapıyoruz ve minimum yüksekliği belirliyoruz */
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+
+/* Sayfa içeriği için ana stil sınıfı */
+.main {
+  /* Flex öğesinin büyümesine izin vererek içeriği doldurmasını sağlıyoruz */
+  flex: 1;
+}
+
+/* Başlık etiketi h1 için stil tanımları */
+h1 {
+  /* Yazı tipi boyutunu büyük yapıyoruz */
+  font-size: 5rem;
+}
+
+/* Footer bölümü için stil tanımları */
+footer {
+  /* Metni sağa hizalıyoruz */
+  text-align: right;
+  /* Metin rengini belirliyoruz */
+  color: midnightblue;
+}
+
+/* Karoların yanındaki resimleri stillemek için kullanılan sınıf */
+.tile-image {
+  /* Resim yüksekliğini belirliyoruz */
+  height: 200px;
+  /* Resmi sola yatay hizalıyoruz */
+  float: left;
+  /* Sağ tarafta boşluk bırakarak resimler arasında boşluk ekliyoruz */
+  margin-right: 50px;
+}
+
+/* Kartların stilini belirleyen sınıf */
+.card {
+  /* Kartın genişliğini belirliyoruz */
+  width: 45%;
+}
+
+/* Sol kenara resmi hizalayan sınıf */
+.left {
+  /* Resmi sola yatay hizalıyoruz */
+  float: left;
+}
+
+/* Sağ kenara resmi hizalayan sınıf */
+.right {
+  /* Resmi sağa yatay hizalıyoruz */
+  float: right;
+}
+
+.center{
+  float:none;
+}
+
+/* "creative" sınıfını kullanan metin stil tanımları */
+.creative {
+  /* Metin rengini belirliyoruz */
+  color: midnightblue;
+}
+
+/* Ekran genişliği 680 piksel veya daha küçük olduğunda uygulanacak stil tanımları (medya sorgusu) */
+@media (max-width: 680px) {
+  /* Logo için stil tanımları */
+  .logo {
+    /* Logo genişliğini belirliyoruz */
+    width: 100px;
+  }
+  /* Başlık etiketi h1 için stil tanımları */
+  h1 {
+    /* Yazı tipi boyutunu küçültüyoruz ve metni merkeze hizalıyoruz */
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  /* Kart için stil tanımları */
+  .card {
+    /* Kartın genişliğini tam genişlik yaparak blok düzenine geçiyoruz */
+    width: 100%;
+    /* Blok düzeninde kartlar arasında boşluk ekliyoruz */
+    margin-bottom: 30px;
+    /* Metni iki yana yaslıyoruz */
+    text-align: justify;
+  }
+  /* Kart resimleri için stil tanımları */
+  .card img {
+    /* Resim alt boşluğunu ayarlıyoruz */
+    margin-bottom: 10px;
+    /* Resmi tam genişlik yaparak dolduruyoruz */
+    width: 100%;
+    /* Resmi kaplamak için "object-fit" özelliğini kullanıyoruz */
+    object-fit: cover;
+  }
+}
