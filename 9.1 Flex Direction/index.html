@@ -13,30 +13,30 @@
     .container {
       color: white;
       border: 5px solid gold;
-      display: inline-flex;
-      flex-direction: column;
-      
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
-    /* .container > div{
-      flex-basis: 100px;
-    } */
 
     .container > div{
       flex-basis: 100px;
+      
     }
+    
 
     /*
 Select all the elements that are the direct
 children of the .container class.
     */
 
-    .red {background-color: #eb4d4b;}
-    .orange {background-color: #f0932b;}
-    .yellow {background-color: #f6e58d;}
-    .green {background-color: #6ab04c;}
-    .blue {background-color: #4834d4;}
-    .indigo {background-color: #30336b;}
-    .purple {background-color: #be2edd;}
+    .red {background-color: #eb4d4b; order: 1;} /* Kırmızı rengi sıralama 1 */
+    .orange {background-color: #f0932b; order: 2;} /* Turuncu rengi sıralama 2 */
+    .yellow {background-color: #f6e58d; order: 3;} /* Sarı rengi sıralama 3 */
+    .green {background-color: #6ab04c; order: 4;} /* Yeşil rengi sıralama 4 */
+    .blue {background-color: #4834d4; order: 5;} /* Mavi rengi sıralama 5 */
+    .indigo {background-color: #30336b; order: 6;} /* İndigo rengi sıralama 6 */
+    .purple {background-color: #be2edd; order: 7;} /* Mor rengi sıralama 7 */
   </style>
 </head>
 

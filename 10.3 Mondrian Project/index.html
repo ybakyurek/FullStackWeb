@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mondrian Project</title>
+  <style>
+
+
+    .container {
+      height: 748px;
+      width: 748px;
+      display: grid;
+      gap: 9px;
+      background-color: black;
+
+      grid-template-columns:320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 22px;
+
+    }
+    .container>*{
+      background-color: white;
+      border-color:black;
+
+    }
+
+    .a{
+      background-color: red;
+    }
+    .b{
+      background-color: #F0F1EC;
+      grid-column:span 3;
+    }
+    .c{
+      background-color: #F0F1EC;
+      grid-row: span 2;
+    }
+
+    .d{
+      background-color: #F0F1EC;
+      grid-area:2/2/4/4
+    }
+    .e{
+      background-color: #004592;
+      border-bottom: 10px solid #000;
+    }
+
+    .f{
+      background-color: #F0F1EC;
+    }
+
+    .g{
+      background-color:#F9D01E;
+    }
+    .h{
+      background-color:#232629;
+    }
+    .i{
+      grid-area: 3/4/5/4;
+      background-color: #F0F1EC;
+    }
+
+
+
+    /* 
+    Write your CSS here 
+    Gap Colour: #000
+    White: #F0F1EC
+    Red: #E72F24
+    Black: #232629
+    Blue: #004592
+    Yellow: #F9D01E
+
+    For dimensions, see dimensions.png image.
+    HINT: Remember you can't change the properties of grid lines.
+    But grid lines are transparent!
+    */
+  </style>
+</head>
+
+<body>
+  
+  <div class="container">
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+    <div class="e"></div>
+    <div class="f"></div>
+    <div class="g"></div>
+    <div class="h"></div>
+    <div class="i"></div>
+
+
+  </div>
+  
+</body>
+
+</html>
