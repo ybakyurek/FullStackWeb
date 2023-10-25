@@ -1,3 +1,5 @@
+
+
 .gradient-background {
   background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
   background-size: 180% 180%;
@@ -14,6 +16,10 @@
   100% {
     background-position: 0% 50%;
   }
+}
+.testimonial-icons>*>img{
+  height: 30px;
+
 }
 
 .icon-square {
