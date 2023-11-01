@@ -16,32 +16,33 @@ footer {
   font-family: sans-serif;
 }
 
-.w {
-
+.w{
+  background: url("/Drum Kit Starting Files/images/crash.png");
 }
 
-.a {
 
+.a {
+  background: url("/Drum Kit Starting Files/images/kick.png");
 }
 
 .s {
-
+  background: url("/Drum Kit Starting Files/images/snare.png");
 }
 
 .d {
-
+  background-image: url("/Drum Kit Starting Files/images/tom1.png");
 }
 
 .j {
-
+  background: url("/Drum Kit Starting Files/images/tom2.png");
 }
 
 .k {
-
+  background: url("/Drum Kit Starting Files/images/tom3.png");
 }
 
 .l {
-
+  background: url("/Drum Kit Starting Files/images/tom4.png");
 }
 
 .set {
@@ -79,3 +80,4 @@ footer {
   margin: 10px;
   background-color: white;
 }
+
