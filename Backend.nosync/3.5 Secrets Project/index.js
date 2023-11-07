@@ -9,15 +9,24 @@ const port = 3000;
 let authorization = false;
 app.use(bodyParser.urlencoded({ extended: true }));
 
-function logger(req, res, next) {
+// // it's like a constructor but I used it for only logging. second way is below
+// function logger(req, res, next) {
+//   console.log("Request Method: ", req.method);
+//   console.log("Request URL: ", req.url);
+//   console.log(req.body);
+//   next();
+// }
+// app.use(logger);
+
+function ILoveProgramming(req, res, next) {
   console.log("Request Method: ", req.method);
   console.log("Request URL: ", req.url);
-  console.log(req.body);
-  next();
+  if(req.body.password === 'ILoveProgramming'){
+    authorization = true;
+  }
+next();
 }
-
-app.use(logger);
-
+app.use(ILoveProgramming);
 
 
 app.get("/", (req, res) => {
@@ -37,10 +46,10 @@ app.get("/", (req, res) => {
 
 
 app.post("/check", (req, res) => {
-  const password = req.body.password;
-  if(password === 'ILoveProgramming'){
-    authorization=true;
-  }
+  // const password = req.body.password;
+  // if(password === 'ILoveProgramming'){
+  //   authorization=true;
+  // }
 
   if(authorization ===true){
     res.sendFile(__dirname + "/public/secret.html");
