@@ -7,9 +7,12 @@
     But when the user first goes on the website and there is no adjective and noun, 
     Show the default h1 below -->
 
-  
+    <% if (!locals.bandName) { %>
+      <h1>Welcome to BandNameGenerator</h1>
+    <% } else {  %>
+      <h1><%= bandName %></h1>
+    <% } %>
 <form action="/submit" method="POST">
-  <h1><%= bandName %></h1>
   <input type="submit" value="Generate Name">
 </form>
 <!-- Step 3 Add Footer -->
