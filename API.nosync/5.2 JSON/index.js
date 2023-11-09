@@ -17,37 +17,41 @@ app.get("/", (req, res) => {
 });
 
 app.post("/recipe", (req, res) => {
-
-  let recipe =req.body.choice.charAt(0).toUpperCase() + req.body.choice.slice(1);
-  let protName = JSON.parse(recipeJSON)[2].ingredients.protein.name+ ", " + JSON.parse(recipeJSON)[2].ingredients.protein.preparation;
-  let salsaName=JSON.parse(recipeJSON)[2].ingredients.salsa.name;
-  let toppings = [];
-  let sizeOfIng = JSON.parse(recipeJSON)[2].ingredients.toppings.length;
-  for (let i = 0; i < sizeOfIng; i++) {
-    toppings.push(JSON.parse(recipeJSON)[2].ingredients.toppings[i].quantity + " of " + JSON.parse(recipeJSON)[2].ingredients.toppings[i].name)
-  }
-
+  let chosenID = "";
   switch (req.body.choice) {
     case "chicken":
       // console.log("Chicken selected");
-
+      chosenID = 0;
       break;
     case "beef":
       // Beef ile ilgili işlemler
-      console.log("Beef selected");
+      chosenID = 1;
       break;
     case "fish":
       // Fish ile ilgili işlemler
-      console.log("Fish selected");
+      chosenID = 2;
       break;
     default:
-      console.log("Unknown choice");
   }
 
-  res.render('index.ejs', { recipe: recipe, 
-                            protName: protName, 
-                            salsaName:salsaName,
-                            toppings:toppings });
+  let recipedJSON = JSON.parse(recipeJSON)[chosenID];
+  let ingredients = recipedJSON.ingredients;
+  let recipe = recipedJSON.name;
+  let protName =
+    ingredients.protein.name + ", " + ingredients.protein.preparation;
+  let salsaName = ingredients.salsa.name;
+  let toppings = [];
+  for (let i = 0; i < ingredients.toppings.length; i++) {
+    toppings.push(
+      ingredients.toppings[i].quantity + " of " + ingredients.toppings[i].name
+    );
+  }
+  res.render("index.ejs", {
+    recipe: recipe,
+    protName: protName,
+    salsaName: salsaName,
+    toppings: toppings,
+  });
   //Step 3: Write your code here to make this behave like the solution website.
   //Step 4: Add code to views/index.ejs to use the recieved recipe object.
 });

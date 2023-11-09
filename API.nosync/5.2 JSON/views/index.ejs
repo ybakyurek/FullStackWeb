@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Taco Recipes</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+  </head>
 
-<head>
-  <title>Taco Recipes</title>
-  <link rel="stylesheet" type="text/css" href="/styles/main.css">
-</head>
+  <body>
+    <h1>Taco Town 🌮</h1>
 
-<body>
-  <h1>Taco Town 🌮</h1>
+    <form action="/recipe" method="POST" class="buttons">
+      <button type="submit" value="chicken" name="choice">🍗</button>
+      <button type="submit" value="beef" name="choice">🥩</button>
+      <button type="submit" value="fish" name="choice">🐟</button>
+    </form>
 
-  <form action="/recipe" method="POST" class="buttons">
-    <button type="submit" value="chicken" name="choice">🍗</button>
-    <button type="submit" value="beef" name="choice">🥩</button>
-    <button type="submit" value="fish" name="choice">🐟</button>
-  </form>
-
-  <div id="recipeContainer" class="hidden">
-
-    <% if (!locals.recipe) { %>
+    <div id="recipeContainer" class="hidden">
+      <% if (!locals.recipe) { %>
       <!-- If no recipe yet, show: -->
       <h2>Pick your favourite taco ingredient 👆</h2>
       <h3>Ingredients:</h3>
@@ -27,25 +25,16 @@
         <li>Every other topping</li>
       </ul>
       <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
-    <% } else {  %>
-      <h2><%= recipe %> Taco</h2>
+      <% } else { %>
+      <h2><%= recipe %></h2>
       <h3>Ingredients:</h3>
       <ul id="ingredientsList">
-        <li><%= protName %> </li>
-        <li><%= salsaName %> </li>
+        <li><%= protName %></li>
+        <li><%= salsaName %></li>
         <%toppings.forEach((item)=> { %>
-          <li>
-            <%=item %>
-          </li>
-          <%}) %>
-      
-    <% } %>
-  </ul>
-
-
-
-
-  </div>
-</body>
-
+        <li><%=item %></li>
+        <%}) %> <% } %>
+      </ul>
+    </div>
+  </body>
 </html>
