@@ -41,11 +41,9 @@ app.post("/recipe", (req, res) => {
     ingredients.protein.name + ", " + ingredients.protein.preparation;
   let salsaName = ingredients.salsa.name;
   let toppings = [];
-  for (let i = 0; i < ingredients.toppings.length; i++) {
-    toppings.push(
-      ingredients.toppings[i].quantity + " of " + ingredients.toppings[i].name
-    );
-  }
+  ingredients.toppings.forEach((topping) => {
+    toppings.push(topping.quantity + " of " + topping.name);
+  });
   res.render("index.ejs", {
     recipe: recipe,
     protName: protName,
