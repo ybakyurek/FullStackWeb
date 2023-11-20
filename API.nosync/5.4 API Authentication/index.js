@@ -20,52 +20,35 @@ app.get("/noAuth", async (req, res) => {
   //The data you get back should be sent to the ejs file as "content"
   //Hint: make sure you use JSON.stringify to turn the JS object from axios into a string.
   try {
-    const response = await axios.get(
-      `${API_URL}random`
-    );
-    const result = response.data;
-    console.log(JSON.stringify(result))
-    res.render("index.ejs", { content: JSON.stringify(result) });
-
+    const response = await axios.get(`${API_URL}random`);
+    res.render("index.ejs", { content: JSON.stringify(response.data) });
   } catch (error) {
-    console.error("Failed to make request:", error.message);
-    res.render(
-      "index.ejs",
-      {
-        error: "404."
-      }
-    );
+    res.render("index.ejs", {error:  error.message});
   }
 });
 
 app.get("/basicAuth", async (req, res) => {
   try {
-    const result = await axios.get(
-      API_URL + "all",
-      {
-        auth: {
-          username: yourUsername,
-          password: yourPassword,
-        },
-      }
-    );
+    const result = await axios.get(API_URL + "all", {
+      auth: {
+        username: yourUsername,
+        password: yourPassword,
+      },
+    });
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.status(404).send(error.message);
   }
 });
 
-app.get("/apiKey", async(req, res) => {
+app.get("/apiKey", async (req, res) => {
   try {
-    const result = await axios.get(
-      API_URL + "filter",
-      {
-        params: {
-          score: 5,
-          apiKey: yourAPIKey,
-        },
-      }
-    );
+    const result = await axios.get(API_URL + "filter", {
+      params: {
+        score: 5,
+        apiKey: yourAPIKey,
+      },
+    });
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.status(401).send(error.message); // 401 for unauthorized access
@@ -75,17 +58,13 @@ app.get("/apiKey", async(req, res) => {
   //HINT: You need to provide a query parameter of apiKey in the request.
 });
 
-
-app.get("/bearerToken", async(req, res) => {
+app.get("/bearerToken", async (req, res) => {
   try {
-    const result = await axios.get(
-      API_URL + "secrets/42",
-      {
-        headers: { 
-          'Authorization': `Bearer ${yourBearerToken}`,
-        }
-      }
-    );
+    const result = await axios.get(API_URL + "secrets/42", {
+      headers: {
+        Authorization: `Bearer ${yourBearerToken}`,
+      },
+    });
     res.render("index.ejs", { content: JSON.stringify(result.data) });
   } catch (error) {
     res.status(401).send(error.message); // 401 for unauthorized access
