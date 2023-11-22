@@ -97,11 +97,13 @@ app.put("/jokes/:id", (req, res) => {
 
     // Update object
     const updatedJoke = {
+      id,
       jokeText,
-      jokeType,
+      jokeType
     };
 
-    jokes[id-1] = updatedJoke;
+    const searchIndex = jokes.findIndex((joke) => joke.id === id);
+    jokes[searchIndex] = updatedJoke;
     
     // Respond with the newly created joke
     res.json(updatedJoke);
@@ -145,13 +147,15 @@ app.patch("/jokes/:id", (req, res) => {
 //7. DELETE Specific joke
 app.delete("/jokes/:id", (req, res) => {
   
-  const id = req.params.id;
-  let joke = ((jokes[id-1]));
-  if (joke) {
-    jokes.pop(joke.id)
-    res.json(joke);
+  const id = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke) => joke.id === id);
+  if (searchIndex > -1) {
+    jokes.splice(searchIndex, 1);
+    res.sendStatus(200);
   } else {
-    res.status(404).json({ error: "Joke not found" });
+    res
+      .status(404)
+      .json({ error: `Joke with id: ${id} not found. No jokes were deleted.` });
   }
 });
 
