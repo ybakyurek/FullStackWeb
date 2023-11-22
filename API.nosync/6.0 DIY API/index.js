@@ -18,13 +18,19 @@ app.get("/random", (req, res) => {
 
 app.get("/jokes/:id", (req, res) => {
   
-  const id = req.params.id;
-  let joke = ((jokes[id-1]));
-  if (joke) {
-    res.json(joke);
-  } else {
-    res.status(404).json({ error: "Joke not found" });
-  }
+  // const id = req.params.id;
+  // let joke = ((jokes[id-1]));
+  // if (joke) {
+  //   res.json(joke);
+  // } else {
+  //   res.status(404).json({ error: "Joke not found" });
+  // }
+  
+  //   OR
+
+  const id = parseInt(req.params.id);
+  const selectedJokes = jokes.find(joke => joke.id === id);
+  res.json(selectedJokes);
 });
 
 
