@@ -226,3 +226,44 @@ CREATE TABLE homework submission (
 );
 ```
 
+
+
+
+
+### UPDATE TABLE
+
+Tablo işlemlerini açıklamak için örneklerle birlikte ALTER, DROP, UPDATE ve DELETE SQL ifadelerini ele alalım:
+
+1. **ALTER TABLE:** ADD, DROP, ALTER
+   - Tabloyu değiştirmek için kullanılır. Örneğin, sütun eklemek, sütun silmek, sütun tipini değiştirmek gibi.
+   ```sql
+   -- Örnek: Tabloya yeni bir sütun eklemek
+   ALTER TABLE employees
+   ADD COLUMN birthdate DATE;
+   ```
+
+2. **DROP TABLE:**
+   - Var olan bir tabloyu silmek için kullanılır. Bu işlem tabloyu ve içindeki verileri kalıcı olarak yok eder.
+   ```sql
+   -- Örnek: "employees" tablosunu silmek
+   DROP TABLE employees;
+   ```
+
+3. **UPDATE:**
+   - Var olan kayıtların değerlerini güncellemek için kullanılır.
+   ```sql
+   -- Örnek: "employees" tablosundaki bir kaydın maaşını güncellemek
+   UPDATE employees
+   SET salary = 60000
+   WHERE employee_id = 101;
+   ```
+
+4. **DELETE:**
+   - Belirli koşullara uyan kayıtları silmek için kullanılır.
+   ```sql
+   -- Örnek: "employees" tablosundaki bir kaydı silmek
+   DELETE FROM employees
+   WHERE employee_id = 101;
+   ```
+
+Bu örnekler, temel tablo yönetimi işlemlerini göstermektedir. Ancak bu tür işlemleri gerçekleştirirken dikkatli olmalısınız, çünkü veritabanındaki verilerin silinmesi veya değiştirilmesi kalıcı etkilere neden olabilir. Uygulama geliştirme sürecinde bu tür işlemleri test etmek önemlidir.
