@@ -190,3 +190,39 @@ create table flags(
 )
 ```
 
+
+
+
+
+#### ONE TO ONE
+
+```postgresql
+CREATE TABLE student 
+( id SERIAL PRIMARY KEY,
+	first_name TEXT, 
+	last name TEXT
+);
+
+CREATE TABLE contact detail (
+	id INTEGER REFERENCES student (id) UNIQUE, 
+  tel TEXT, 
+  address TEXT);
+```
+
+
+
+#### ONE TO MANY
+
+```postgresql
+CREATE TABLE student ( 
+  id SERIAL PRIMARY KEY, 
+  first_name TEXT, 
+  last name TEXT
+);
+CREATE TABLE homework submission ( 
+  id SERIAL PRIMARY KEY, 
+  mark INTEGER,
+	student_id INTEGER REFERENCES student (id)
+);
+```
+
