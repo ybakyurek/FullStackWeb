@@ -75,6 +75,12 @@ INNER JOIN departments ON employees.department_id = departments.department_id;
 
 # PostgreSQL
 
+## Installation
+
+https://sbp.enterprisedb.com/getfile.jsp?fileid=1258653
+
+
+
 PostgreSQL'de kullanılabilen temel veri tipleri oldukça çeşitlidir. İşte PostgreSQL'deki tüm temel veri tipleri:
 
 1. **Sayısal Veri Tipleri:**
